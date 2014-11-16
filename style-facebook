@@ -1,0 +1,13 @@
+/* Created by thinkaliker */
+
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("facebook.com") {
+
+#pagelet_trending_tags_and_topics{
+    display:none;
+}
+    
+.ego_column{
+    display:none;
+}
