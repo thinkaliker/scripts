@@ -11,3 +11,9 @@
 .ego_column{
     display:none;
 }
+    
+#pagelet_games_rhc{
+    display:none;
+}
+
+}
