@@ -1,0 +1,20 @@
+/* Created by thinkaliker */
+
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("youtube.com") {
+
+#watch-discussion{
+    display:none;
+}
+#live-comments-section{
+    display:none;
+}
+#hide-live-comments{
+    display:none;
+}
+#watch-live-comments{
+    display:none;
+}
+
+}
