@@ -16,4 +16,4 @@ These are [Userscripts](http://www.greasespot.net/) scripts
 These are Batch scripts for Microsoft Windows computers
 
 ####Monstercat Twitch IRC Pidgin log parser for OBS
-Check the [](readme).
+Check the [readme](https://github.com/thinkaliker/scripts/tree/master/batch).
