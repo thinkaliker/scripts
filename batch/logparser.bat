@@ -1,24 +1,38 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: change this source line to match whatever DIRECTORY your chat logs are stored in
-set source=C:\Users\Adam\AppData\Roaming\.purple\logs\irc\thinkaliker@irc.twitch.tv\#thinkaliker.chat
+title Monstercat FM Twitch IRC Log Parser for OBS
+echo Tool created by thinkaliker.
+echo Your currently playing song text file will be located at: %dest%
+echo Artist and song will be listed below everytime the log is checked.
 
-:: change this destination line to match wherever you want the output text file to be
-set dest=D:\nowplaying.txt
+set /p username="Enter channel username (Pidgin config only, press enter otherwise): "
+set /p dest="Enter text file output location (eg. D:\nowplaying.txt ): "
+
+:: change this source line to match whatever DIRECTORY your chat logs are stored in - please make sure this is correct for your system
+::
+set source=%AppData%\.purple\logs\irc\%username%@irc.twitch.tv\#%username%.chat
+::
+
+::use the line below if you are using hexchat - just uncomment out the line below and comment out the line above
+:: 
+::set source=%AppData%\HexChat\logs\twitch
+::
+::make sure that you set the twitch server room to NOT log and DELETE twitch.log
+
+::TODO prompt for hexchat or Pidgin configuration
+
+echo Press (Ctrl+C) to exit, or close the window.
+echo ------------------------------------------------------------------
 
 set cpy=%temp%\lp_cpy.txt
-set trim=%temp%\lp_trim.txt
 set mcat=%temp%\lp_mcat.txt
 set line=%temp%\lp_line.txt
 set sa=%temp%\lp_sa.txt
 
-title Monstercat FM Twitch IRC Pidgin Log Parser for OBS
-echo Parser has begun.
-echo Artist and song will be listed below everytime the log is checked.
-echo ------------------------------------------------------------------
-
 :start
+
+::TODO change file get logic based on pidgin or hexchat choice
 
 for /f "tokens=*" %%G in ('dir *.txt /b /a-d /od %source% 2^> NUL') do (
 	set newest=%%G
@@ -26,23 +40,13 @@ for /f "tokens=*" %%G in ('dir *.txt /b /a-d /od %source% 2^> NUL') do (
 
 copy /V /Y %source%\%newest% %cpy% > NUL
 
-set LINES=0
-for /f "delims==" %%I in (%cpy%) do (
-    set /a LINES=LINES+1
-)
-set /a LINES=LINES-20
-
-break>%trim%
 break>%mcat%
 break>%line%
 
-more +%LINES% %cpy% > %trim%
-findstr "monstercat: Now Playing:" %trim% > %mcat%
+findstr ".*monstercat.*.*Now Playing:.*" %cpy% > %mcat%
 
-set LINES=0
-for /f "delims==" %%I in (%mcat%) do (
-    set /a LINES=LINES+1
-)
+for /f %%C in ('find /V /C "" ^< %mcat%') do set LINES=%%C
+
 set /a LINES=LINES-1
 
 more +%LINES% %mcat% > %line%
@@ -62,7 +66,6 @@ upper "%string%" | jrepl "\q(.*)\q" "$1" /B /X > %dest%
 type %dest%
 
 :: adjust this time to be shorter or longer depending on how quickly you want to check for a new song in IRC
-
 timeout /t 20 /nobreak > NUL
 
 GOTO :start
