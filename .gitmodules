@@ -1,0 +1,3 @@
+[submodule "batch/mcfmircparser"]
+	path = batch/mcfmircparser
+	url = https://github.com/thinkaliker/mcfmircparser.git
