@@ -1,3 +1,6 @@
 [submodule "batch/mcfmircparser"]
 	path = batch/mcfmircparser
 	url = https://github.com/thinkaliker/mcfmircparser.git
+[submodule "python/mcfmpython"]
+	path = python/mcfmpython
+	url = https://github.com/thinkaliker/mcfmpython.git
