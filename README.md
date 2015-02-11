@@ -15,5 +15,14 @@ These are [Userscripts](http://www.greasespot.net/) scripts
 ## batch scripts
 These are Batch scripts for Microsoft Windows computers
 
-####Monstercat Twitch IRC Pidgin log parser for OBS
-Check the [readme](https://github.com/thinkaliker/scripts/tree/master/batch).
+####Monstercat FM Twitch IRC Log parser for OBS
+Check the [main project repo](https://github.com/thinkaliker/MCFMIRCParser).
+
+####Other
+
+- `livestreamerhelper.bat` - Opens [`livestreamer`](http://docs.livestreamer.io/) and [`MCFMPython`](https://github.com/thinkaliker/MCFMPython) at the same time
+
+## python scripts
+
+####Monstercat FM Twitch Helper for Python
+Check the [main project repo](https://github.com/thinkaliker/MCFMPython)
