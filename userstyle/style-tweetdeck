@@ -1,0 +1,12 @@
+/*Created by thinkaliker*/
+
+@-moz-document domain("tweetdeck.twitter.com") {
+	a[data-user-name="/*[[username]]*/"]  {
+	    color: /*[[textcolor]]*/;
+	    border: /*[[border]]*/ /*[[bordercolor]]*/;
+	}
+	.is-inverted-dark a[data-user-name="/*[[username]]*/"] {
+	    color: /*[[textcolor]]*/;
+	    border: /*[[border]]*/ black;
+	}
+}
