@@ -11,6 +11,7 @@ These are [Userstyle](http://userstyles.org) scripts
 ## scripts
 These are [Userscripts](http://www.greasespot.net/) scripts
 - `script-youtube` - Youtube videos page playlist remover
+- `script-jetsetradiolive` - Adds a download button for the currently playing song on JetSetRadio.live
 
 ## batch scripts
 These are Batch scripts for Microsoft Windows computers
