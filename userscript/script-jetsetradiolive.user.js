@@ -25,7 +25,7 @@ function menuAppender(){
   var imgBtn = document.createElement('img');
   aBtn.setAttribute("id", "dlBtn");
   aBtn.setAttribute("alt", "download");
-  imgBtn.setAttribute("style",'z-index: 400; height: 42px; width: 42px; left: 80px; top:13px;');
+  imgBtn.setAttribute("style",'z-index: 400; height: 42px; width: 42px; left: 445px; top:13px;');
   imgBtn.setAttribute("src", "http://i.imgur.com/BP9JFD5.png");
   imgBtn.setAttribute("class", "objectSettings touchableOn");
   
