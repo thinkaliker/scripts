@@ -4,7 +4,7 @@
 // @description Adds a download button for the currently playing song on JetSetRadio.live.
 // @author      thinkaliker
 // @include     http://jetsetradio.live/*
-// @version     1.0
+// @version     1.1
 // @run-at      document-start
 // @grant       none
 // ==/UserScript==
@@ -25,7 +25,7 @@ function menuAppender(){
   var imgBtn = document.createElement('img');
   aBtn.setAttribute("id", "dlBtn");
   aBtn.setAttribute("alt", "download");
-  imgBtn.setAttribute("style",'z-index: 400; height: 42px; width: 42px; left: 445px; top:13px;');
+  imgBtn.setAttribute("style",'z-index: 400; height: 42px; width: 42px; left: 518px; top:13px; position: absoulte;');
   imgBtn.setAttribute("src", "http://i.imgur.com/BP9JFD5.png");
   imgBtn.setAttribute("class", "objectSettings touchableOn");
   
@@ -37,7 +37,8 @@ function dlTimer(){
   var imgBtn = document.getElementById("dlBtn");
   
   title = document.getElementById("programInformationText").innerHTML;
-  var dlstr = 'http://jetsetradio.live/audioplayer/audio/' + title + '.mp3';
+  var dltitle = document.getElementById("audioPlayerMP3").getAttribute("src");
+  var dlstr = 'http://jetsetradio.live/' + dltitle ;
   dlBtn.setAttribute("href", dlstr);
   dlBtn.setAttribute("alt", "Click to download "+ title);
   dlBtn.setAttribute("download", title + '.mp3');
