@@ -12,18 +12,20 @@ These are [Userstyle](http://userstyles.org) scripts
 These are [Userscripts](http://www.greasespot.net/) scripts
 - `script-youtube` - Youtube videos page playlist remover
 - `script-jetsetradiolive` - Adds a download button for the currently playing song on JetSetRadio.live
+- `script-tdusermanager` - semi-complete tweetdeck user tagger
+- `script-data-lynx-uri-remover` - removes Facebook/Messenger link direction on hover
 
 ## batch scripts
 These are Batch scripts for Microsoft Windows computers
 
-####Monstercat FM Twitch IRC Log parser for OBS
+#### Monstercat FM Twitch IRC Log parser for OBS
 Check the [main project repo](https://github.com/thinkaliker/MCFMIRCParser).
 
-####Other
+#### Other
 
 - `livestreamerhelper.bat` - Opens [`livestreamer`](http://docs.livestreamer.io/) and [`MCFMPython`](https://github.com/thinkaliker/MCFMPython) at the same time
 
 ## python scripts
 
-####Monstercat FM Twitch Helper for Python
+#### Monstercat FM Twitch Helper for Python
 Check the [main project repo](https://github.com/thinkaliker/MCFMPython)
