@@ -18,6 +18,10 @@ These are [Userscripts](http://www.greasespot.net/) scripts
 ## batch scripts
 These are Batch scripts for Microsoft Windows computers
 
+- `fix_printer` - automatically stops the spool service, clears out all print jobs, and restarts the service
+- `enable_hyper-v.bat` - enables Hyper-V on non-Pro+ Win 10 installations
+- `webcam_settings.bat` - opens ffmpeg directshow webcam settings
+
 #### Monstercat FM Twitch IRC Log parser for OBS
 Check the [main project repo](https://github.com/thinkaliker/MCFMIRCParser).
 
