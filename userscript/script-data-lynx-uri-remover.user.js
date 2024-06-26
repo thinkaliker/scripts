@@ -10,21 +10,45 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function () {
+    var originalLink = "";
+
+    window.trustedTypes.createPolicy('default', {
+        createHTML: (string, sink) => string
+    })
+
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.type === "attributes") {
+                console.log(mutation.target);
+                if (originalLink.includes('l.messenger.com') || originalLink.includes('l.facebook.com') || originalLink.includes('l.threads.net')) {
+                    mutation.target.insertAdjacentHTML('beforebegin', '<a href="' + mutation.target.attributes.href.value + '" target="_blank" style="font-weight:bold;span:hover\{\}">[FIXED LINK]</a>&nbsp;');
+                    mutation.target.setAttribute('href', '#');
+                    mutation.target.setAttribute('role', '');
+                    originalLink = "";
+                    mutation.target.textContent = `[TRACKED] ${mutation.target.textContent}`;
+                }
+            }
+        });
+    });
+
+
     'use strict';
     document.addEventListener('mouseover', event => {
         let target = event.target;
 
-        if (target.hasAttribute('role') && !target.hasAttribute('aria-label')){
+        if (target.hasAttribute('role') && !target.hasAttribute('aria-label')) {
             if (target.tagName.toLowerCase() === "a" && target.getAttribute('role') === "link") {
+                //console.log(target.attributes.href.value)
+                originalLink = target.attributes.href.value;
+                console.log(originalLink)
+                observer.observe(target, {
+                    attributes: true //configure it to listen to attribute changes
+                  });
                 Array.from(target.attributes).filter(attribute => attribute.name.startsWith("data-lynx-")).forEach(attribute => target.removeAttribute(attribute.name));
-                target.onClick = function() {return false;};
-                if (!target.href.includes('l.messenger.com') && !target.href.includes('l.facebook.com') && !target.href.includes('l.threads.net')) {
-                    target.insertAdjacentHTML('afterend', '&nbsp;&nbsp;<span onClick="window.open(\'' + target.href + '\', \'_blank\'\)" style="font-weight:bold;font-style:italic;text-decoration:underline double;span:hover\{\}">FIXED LINK</span>' );
-                    target.setAttribute('href', '#');
-                    target.setAttribute('role', '');
-                    console.log('Removed tracker here');
-                }
+                target.onClick = function () {
+                    return false;
+                };
             }
         }
     });
